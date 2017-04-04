@@ -40,5 +40,4 @@ public abstract class TaxiCarBuilder {
 
 	public abstract void buildPrice();
 
-
 }

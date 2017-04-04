@@ -13,12 +13,13 @@ import by.htp.task_oop.taxi_builder.OpelTaxiBuilder;
 import by.htp.task_oop.taxi_builder.SubaruTaxiBuilder;
 import by.htp.task_oop.taxi_builder.TaxiAssembler;
 import by.htp.task_oop.taxi_builder.TaxiCarBuilder;
-import by.htp.task_oop.common_methods.TaxiParkUtilsMethods;;
+import by.htp.task_oop.common_methods.TaxiParkUtilsMethods;
+
 public class TaxiWork {
 	public static void main(String[] args) {
 		ArrayList<TaxiCar> taxiPark = new ArrayList<TaxiCar>();
 
-		TaxiAssembler taxiAssembler = new TaxiAssembler();
+		TaxiAssembler taxiAssembler = new TaxiAssembler(); // DIRECTOR
 
 		TaxiCarBuilder opelTaxiBuilder = new OpelTaxiBuilder();
 		taxiAssembler.setTaxiCarBuilder(opelTaxiBuilder);
@@ -52,7 +53,6 @@ public class TaxiWork {
 		luxuryTaxiAssembler.accemblingLuxuryTaxiCar();
 		LuxuryTaxiCar lexusTaxi1 = luxuryTaxiAssembler.getLuxuryTaxiCar();
 
-
 		taxiPark.add(fordTaxi1);
 		taxiPark.add(opelTaxi1);
 		taxiPark.add(opelTaxi2);
@@ -63,20 +63,24 @@ public class TaxiWork {
 
 		TaxiParkUtilsMethods.printPark(taxiPark);
 
-		System.out.println("Park total price: "+TaxiParkUtilsMethods.parkTotalPrice(taxiPark));
+		System.out.println("Park total price: " + TaxiParkUtilsMethods.parkTotalPrice(taxiPark));
+
 		
 		ArrayList<TaxiCar> sortedTaxiPark = new ArrayList<TaxiCar>();
-		sortedTaxiPark = (ArrayList<TaxiCar>) taxiPark.clone();
+		if (taxiPark.getClass() == sortedTaxiPark.getClass()) {
+			sortedTaxiPark = (ArrayList<TaxiCar>) taxiPark.clone();
+		}
 		sortedTaxiPark.sort(new FuelComparator());
 
 		System.out.println("Sotred by fuel consumption: ");
 		TaxiParkUtilsMethods.printPark(sortedTaxiPark);
+
 		
 		ArrayList<TaxiCar> speedTaxiPark = new ArrayList<TaxiCar>();
 		System.out.println("List of cars with a maximum speed of more than 220: ");
 		speedTaxiPark = TaxiParkUtilsMethods.getCarsByMaxSpeed(taxiPark, 220);
 		TaxiParkUtilsMethods.printPark(speedTaxiPark);
-		
+
 	}
 
 }

@@ -75,5 +75,4 @@ public class FordTaxiBuilder extends TaxiCarBuilder {
 		taxiCar.setPriсe(17000.0);
 	}
 
-
 }

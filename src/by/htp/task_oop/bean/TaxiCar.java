@@ -1,25 +1,27 @@
 package by.htp.task_oop.bean;
 
-import java.util.Comparator;
-
-import by.htp.task_oop.bean.Params.BodyType;
-import by.htp.task_oop.bean.Params.Transmission;
+import by.htp.task_oop.bean.Param.BodyType;
+import by.htp.task_oop.bean.Param.Transmission;
 
 public class TaxiCar extends Car implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private String brand;
+	private String model;
+
+	private Transmission transmission;
+	private BodyType bodyType;
+
+	private int yearOfManufacture;
+	private int numberOfSeats;
+	private int numberOfAirbags;
+
+	private Double priсe;
 
 	public TaxiCar() {
 		super();
 	}
-
-	private static final long serialVersionUID = 1L;
-	private Transmission transmission;
-	private BodyType bodyType;
-	private int yearOfManufacture;
-	private String brand;
-	private String model;
-	private int numberOfSeats;
-	private int numberOfAirbags;
-	private Double priсe;
 
 	public Transmission getTransmission() {
 		return transmission;
@@ -139,10 +141,9 @@ public class TaxiCar extends Car implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return super.toString() + "TaxiCar [transmission=" + transmission + ", bodyType=" + bodyType
-				+ ", yearOfManufacture=" + yearOfManufacture + ", brand=" + brand + ", model=" + model
-				+ ", numberOfSeats=" + numberOfSeats + ", numberOfAirbags=" + numberOfAirbags + ", priсe=" + priсe
-				+ "]";
+		return super.toString() + ", transmission=" + transmission + ", bodyType=" + bodyType + ", yearOfManufacture="
+				+ yearOfManufacture + ", brand=" + brand + ", model=" + model + ", numberOfSeats=" + numberOfSeats
+				+ ", numberOfAirbags=" + numberOfAirbags + ", priсe=" + priсe + "]";
 	}
 
 }

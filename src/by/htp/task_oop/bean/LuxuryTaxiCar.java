@@ -2,14 +2,15 @@ package by.htp.task_oop.bean;
 
 public class LuxuryTaxiCar extends TaxiCar implements java.io.Serializable {
 
-	public LuxuryTaxiCar() {
-		super();
-	}
-
 	private static final long serialVersionUID = 1L;
+	
 	private boolean hasTV;
 	private boolean hasWiFi;
 	private boolean hasHeatedSeats;
+	
+	public LuxuryTaxiCar() {
+		super();
+	}
 
 	public boolean isHasTV() {
 		return hasTV;

@@ -1,27 +1,21 @@
 package by.htp.task_oop.bean;
 
-import java.util.Random;
-
-import by.htp.task_oop.bean.Params.Drive;
-import by.htp.task_oop.bean.Params.Fuel;
+import by.htp.task_oop.bean.Param.Drive;
+import by.htp.task_oop.bean.Param.Fuel;
 
 public abstract class Car implements java.io.Serializable {
 
-	public Car() {
-
-	}
-
 	private static final long serialVersionUID = 1L;
+
 	private Fuel fuelType;
 	private Drive driveType;
+
 	private double engineDisplacement;
 	private double maxSpeed;
 	private double fuelConsumption;
-	private final int bodyNubmer;
+	private int bodyNubmer;
 
-	{
-		Random rand = new Random();
-		bodyNubmer = 10000 + rand.nextInt(89999);
+	public Car() {
 	}
 
 	public Fuel getFuelType() {
@@ -68,15 +62,19 @@ public abstract class Car implements java.io.Serializable {
 		return bodyNubmer;
 	}
 
+	public void setBodyNubmer(int bodyNumber) {
+		this.bodyNubmer = bodyNumber;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(fuelConsumption);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((driveType == null) ? 0 : driveType.hashCode());
+		long temp;
 		temp = Double.doubleToLongBits(engineDisplacement);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(fuelConsumption);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((fuelType == null) ? 0 : fuelType.hashCode());
 		temp = Double.doubleToLongBits(maxSpeed);
@@ -86,39 +84,30 @@ public abstract class Car implements java.io.Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-
-		if (obj == null) {
+		if (obj == null)
 			return false;
-		}
-		if (getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 		Car other = (Car) obj;
-		if (Double.doubleToLongBits(fuelConsumption) != Double.doubleToLongBits(other.fuelConsumption)) {
+		if (driveType != other.driveType)
 			return false;
-		}
-		if (driveType != other.driveType) {
+		if (Double.doubleToLongBits(engineDisplacement) != Double.doubleToLongBits(other.engineDisplacement))
 			return false;
-		}
-		if (Double.doubleToLongBits(engineDisplacement) != Double.doubleToLongBits(other.engineDisplacement)) {
+		if (Double.doubleToLongBits(fuelConsumption) != Double.doubleToLongBits(other.fuelConsumption))
 			return false;
-		}
-		if (fuelType != other.fuelType) {
+		if (fuelType != other.fuelType)
 			return false;
-		}
-		if (Double.doubleToLongBits(maxSpeed) != Double.doubleToLongBits(other.maxSpeed)) {
+		if (Double.doubleToLongBits(maxSpeed) != Double.doubleToLongBits(other.maxSpeed))
 			return false;
-		}
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Car(abstract) [fuelType=" + fuelType + ", driveType=" + driveType + ", engineDisplacement="
-				+ engineDisplacement + ", maxSpeed=" + maxSpeed + ", FuelConsumption=" + fuelConsumption + "]";
+		return "Car: fuelType=" + fuelType + ", driveType=" + driveType + ", engineDisplacement=" + engineDisplacement
+				+ ", maxSpeed=" + maxSpeed + ", fuelConsumption=" + fuelConsumption + ", bodyNubmer=" + bodyNubmer;
 	}
 
 }

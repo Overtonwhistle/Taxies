@@ -1,4 +1,4 @@
-package by.htp.task_oop.comparator;
+package by.htp.task_oop.service.comparator;
 
 import java.util.Comparator;
 

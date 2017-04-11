@@ -1,10 +1,11 @@
-package by.htp.task_oop.common_methods;
+package by.htp.task_oop.service.common_methods;
 
 import java.util.ArrayList;
 
 import by.htp.task_oop.bean.TaxiCar;
 
 public class TaxiParkUtilsMethods {
+	
 	public static void printPark(ArrayList<TaxiCar> taxiPark) {
 		for (TaxiCar car : taxiPark) {
 			System.out.println("VIN: " + car.getBodyNubmer() + " Brand/Model: " + car.getBrand() + " " + car.getModel()
